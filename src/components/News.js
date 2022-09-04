@@ -43,14 +43,18 @@ capitalizeFirstLetter(str) {
   // }
   async componentDidMount()
   {
+    this.props.setProgress(10);
     let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=3594993a086546d08df1e7c6a2bd2db0&pageSize=${this.props.pageSize}`;
     this.setState({loading:true});
     let data=await fetch(url);
+    this.props.setProgress(30);
     let parsedData=await data.json();
+    this.props.setProgress(50);
     this.setState({articles:parsedData.articles,
       totalResults:parsedData.totalResults,
-    loading:false
-  });
+      loading:false
+    });
+    this.props.setProgress(100);
   }
   fetchMoreData = async () => {
     this.setState({page:this.state.page+1});
