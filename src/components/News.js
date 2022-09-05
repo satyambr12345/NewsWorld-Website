@@ -44,7 +44,7 @@ capitalizeFirstLetter(str) {
   async componentDidMount()
   {
     this.props.setProgress(10);
-    let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=3594993a086546d08df1e7c6a2bd2db0&pageSize=${this.props.pageSize}`;
+    let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&pageSize=${this.props.pageSize}`;
     this.setState({loading:true});
     let data=await fetch(url);
     this.props.setProgress(30);
@@ -58,7 +58,7 @@ capitalizeFirstLetter(str) {
   }
   fetchMoreData = async () => {
     this.setState({page:this.state.page+1});
-    const url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=3594993a086546d08df1e7c6a2bd2db0&page=${this.state.page+1}&pageSize=${this.props.pageSize} `;
+    const url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page+1}&pageSize=${this.props.pageSize} `;
     let data=await fetch(url);
     let parsedData=await data.json();
     this.setState({articles:this.state.articles.concat(parsedData.articles),
