@@ -1,5 +1,6 @@
 # NewsWorld Website
 ## Key Features:
+* Technologies Used: HTML, CSS, Javascript, ReactJs
 * It shows the latest news using News API, and on clicking over the read more button, the news opens in the same tab itself.
 * It has various categories from which the users can select what kind of news they want.
 * There is also a spinner and a loading bar, that spins while the news are loading.
