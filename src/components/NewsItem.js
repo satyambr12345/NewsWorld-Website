@@ -4,12 +4,12 @@ export class NewsItem extends Component {
     let {title,description,imgUrl,newsUrl,author,date,source}=this.props;
     let voices = speechSynthesis.getVoices();
     let speakData = new SpeechSynthesisUtterance();
-    speakData.rate = 1; // From 0.1 to 10
-    speakData.pitch = 1.3;
+    speakData.rate = 1.2; // From 0.1 to 10
+    speakData.pitch = 0.8;
     speakData.voice = voices[2];
     const handleClick=()=>
     {
-        speakData.text = description;
+        speakData.text = !description?title:description;
         speechSynthesis.speak(speakData); 
     }
     return (
