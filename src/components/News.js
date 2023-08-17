@@ -25,6 +25,7 @@ capitalizeFirstLetter(str) {
     super(props);
     this.state=
     {
+      ourText:"",
       articles:[],
       loading:true,
       page:1,
@@ -67,7 +68,7 @@ capitalizeFirstLetter(str) {
           loader={<Spinner/>}
         >
           <div className="container my-3">
-          <div className="row">
+          <div className="row" style={{width:"1150px"}}>
          {this.state.articles.map((element,index)=>{
 
            return <div className="col-md-4" key={index}>
